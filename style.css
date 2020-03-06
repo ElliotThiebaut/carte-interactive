@@ -1,11 +1,30 @@
-/* CSS files add styling rules to your content */
-
-body {
-  font-family: helvetica, arial, sans-serif;
-  margin: 2em;
-}
+/* votre code CSS */
 
 h1 {
-  font-style: italic;
-  color: #373fff;
+    font-family: 'Poppins', sans-serif;
+    color:black;
+    font-weight: 600;
+}
+
+#map{
+    height: 85vh;
+    width: 100vw;
+    max-width:100%;
+}
+
+.underline{
+    text-decoration: none;
+    position: relative;   
+}
+
+.underline::before {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    height: 9px;
+    background: rgb(240, 240, 18);
+    top: 30px;
+    left: 0;
+    right: 0;
+    width: 100%;
 }
