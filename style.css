@@ -1,30 +1,49 @@
 /* votre code CSS */
 
 h1 {
-    font-family: 'Poppins', sans-serif;
-    color:black;
-    font-weight: 600;
+	font-family: 'Poppins', sans-serif;
+	color: black;
+	font-weight: 600;
 }
 
-#map{
-    height: 85vh;
-    width: 100vw;
-    max-width:100%;
+#map {
+	height: 85vh;
+	width: 100vw;
+	max-width: 100%;
 }
 
-.underline{
-    text-decoration: none;
-    position: relative;   
+.underline {
+	text-decoration: none;
+	position: relative;
 }
 
 .underline::before {
-    position: absolute;
-    z-index: -1;
-    content: '';
-    height: 9px;
-    background: rgb(240, 240, 18);
-    top: 30px;
-    left: 0;
-    right: 0;
-    width: 100%;
+	position: absolute;
+	z-index: -1;
+	content: '';
+	height: 9px;
+	background: rgb(240, 240, 18);
+	top: 30px;
+	left: 0;
+	right: 0;
+	width: 100%;
+}
+.leaflet-popup-scrolled {
+	border: 0px;
+	overflow-x: hidden;
+}
+
+.leaflet-popup-scrolled::-webkit-scrollbar-track {
+	border-radius: 15px;
+	background-color: white;
+}
+
+.leaflet-popup-scrolled::-webkit-scrollbar {
+	width: 5px;
+	background-color: #f5f5f5;
+}
+
+.leaflet-popup-scrolled::-webkit-scrollbar-thumb {
+	border-radius: 15px;
+	background-color: rgb(134, 134, 134);
 }
