@@ -15,23 +15,15 @@ L.tileLayer(
 	}
 ).addTo(mymap);
 
-var markerEiffel = L.marker([ 48.8584, 2.2945 ]).addTo(mymap);
-markerEiffel.bindPopup('<b>La Tour Eiffel</b><br><i>Une belle oeuvre</i>');
-
-var markerLouvre = L.marker([ 48.8606, 2.3376 ]).addTo(mymap);
-markerLouvre.bindPopup('<b>Le louvre</b><br><i>Une belle oeuvre également</i>');
+var layerGroup = L.layerGroup().addTo(mymap);
 
 async function getData(query) {
-
-	// if (markerEiffel) {
-	// 	markerEiffel.clearLayers();
-	// }
-
 	if (query) {
 		var url =
-			'https://opendata.paris.fr/api/records/1.0/search/?dataset=que-faire-a-paris-&q=date_start+%3E%3D+%23now()+AND+date_start+%3C+%23now(months%3D1)' +
+			'https://opendata.paris.fr/api/records/1.0/search/?dataset=que-faire-a-paris-&q=date_start+%3E%3D+%23now()+AND+date_start+%3C+%23now(months%3D1) ' +
 			query +
 			'&rows=50&facet=category&facet=tags&facet=address_zipcode&facet=address_city&facet=pmr&facet=blind&facet=deaf&facet=access_type&facet=price_type';
+		layerGroup.clearLayers();
 	} else {
 		var url =
 			'https://opendata.paris.fr/api/records/1.0/search/?dataset=que-faire-a-paris-&q=date_start+%3E%3D+%23now()+AND+date_start+%3C+%23now(months%3D1)&rows=50&facet=category&facet=tags&facet=address_zipcode&facet=address_city&facet=pmr&facet=blind&facet=deaf&facet=access_type&facet=price_type';
@@ -66,7 +58,7 @@ async function getData(query) {
 		console.log(title + ' ' + latitude + ' ' + longitude);
 		// .. mais ce serait mieux de les afficher sur la carte !
 
-		let marker = L.marker([ latitude, longitude ]).addTo(mymap);
+		var marker = L.marker([ latitude, longitude ]).addTo(layerGroup);
 		marker.bindPopup(
 			'<b>' +
 				title +
